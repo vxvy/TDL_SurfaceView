@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">The Dragon\'s Lair</string>
+    <string name="btn_play">Jugar</string>
+    <string name="btn_options">Opciones</string>
+    <string name="btn_scores">Records</string>
+    <string name="btn_help">Ayuda</string>
+    <string name="msg_exit">¿De verdad quieres salir?</string>
+</resources>
