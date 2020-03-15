@@ -31,8 +31,9 @@ public class AssetsPaths {
     public static final String FONT_MAIN_TITLE_PATH = "fonts/DUNGRG.TTF";
     public static final String FONT_TEXT_PATH = "fonts/Mystery-Dungeon.ttf";
     public static final String FONT_EPIC_PATH = "fonts/EpicAwesomeness.ttf";
-    public static final String FONT_EPIC_PATH_S = "fonts/EpicAwesomenessScribblz.ttf";
-    public static final String FONT_EPIC_PATH_CALI = "fonts/Epic-Calligraphy.ttf";
+    public static final String FONT_EPIC_S_PATH = "fonts/EpicAwesomenessScribblz.ttf";
+    public static final String FONT_EPIC_CALI_PATH = "fonts/Epic-Calligraphy.ttf";
+    public static final String FONT_AWESOME_PATH = "fonts/awesome-regular.ttf";
 
     private AssetsPaths(){}
 }

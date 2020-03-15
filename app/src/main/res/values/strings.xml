@@ -6,4 +6,6 @@
     <string name="btn_scores">Scores</string>
     <string name="btn_help">Help</string>
     <string name="msg_exit">Exit</string>
+    <string name="btn_newgame">New Game</string>
+    <string name="btn_continue">Continue</string>
 </resources>

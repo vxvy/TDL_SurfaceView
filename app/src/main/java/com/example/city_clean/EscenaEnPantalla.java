@@ -9,6 +9,7 @@ import android.view.SurfaceView;
 import com.example.city_clean.codeUtils.Constantes;
 import com.example.city_clean.escenas.EscenaJuego;
 import com.example.city_clean.escenas.EscenaMenu;
+import com.example.city_clean.escenas.EscenaOpciones;
 import com.example.city_clean.escenas.EsquemaEscena;
 
 public class EscenaEnPantalla extends SurfaceView implements SurfaceHolder.Callback {
@@ -87,6 +88,15 @@ public class EscenaEnPantalla extends SurfaceView implements SurfaceHolder.Callb
                         escena = new EscenaJuego(context, nuevaEscena, anchoPantalla, altoPantalla);
                         break;
                     case Constantes.ESCENA_OPCIONES_VALUE:
+                        escena = new EscenaOpciones(context, nuevaEscena, anchoPantalla, altoPantalla);
+                        break;
+                    case Constantes.ESCENA_CREDITOS_VALUE:
+                        escena = new EscenaJuego(context, nuevaEscena, anchoPantalla, altoPantalla);
+                        break;
+                    case Constantes.ESCENA_JUEGO_NIVEL_1_VALUE:
+                        escena = new EscenaJuego(context, nuevaEscena, anchoPantalla, altoPantalla);
+                        break;
+                    case Constantes.ESCENA_JUEGO_NIVEL_JEFE_VALUE:
                         escena = new EscenaJuego(context, nuevaEscena, anchoPantalla, altoPantalla);
                         break;
                     default:

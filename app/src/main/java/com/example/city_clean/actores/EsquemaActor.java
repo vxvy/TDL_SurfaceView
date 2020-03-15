@@ -4,12 +4,11 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.util.Log;
 import android.view.MotionEvent;
 
 import com.example.city_clean.MainActivity;
 import com.example.city_clean.R;
-import com.example.city_clean.codeUtils.CodeSnippets;
+import com.example.city_clean.codeUtils.RecursosCodigo;
 
 public class EsquemaActor {
 
@@ -30,7 +29,7 @@ public class EsquemaActor {
     public RectF bloqueColision;
     public Paint bloqueColisionPaint;
 
-    public float escalasprite;
+    public float escalaSprite;
 
     public EsquemaActor(float x, float y, int numVidas, Bitmap spriteContenedor, float escalaSprite){
         this.x = x;
@@ -39,13 +38,14 @@ public class EsquemaActor {
         this.atacando = false;
         this.spriteIndexI = 0;
         this.spriteIndexJ = 0;
-        this.escalasprite = escalaSprite;
+        this.escalaSprite = escalaSprite;
         this.colisiona = false;
 
         this.spriteTamanyoVisX = (int)(spriteContenedor.getWidth()*escalaSprite);
         this.spriteTamanyoVisY = (int)(spriteContenedor.getHeight()*escalaSprite);
 
         this.spriteContenedor = spriteContenedor;
+
         this.spriteMostrandose = Bitmap.createScaledBitmap(
                 spriteContenedor,
                 spriteTamanyoVisX,
@@ -83,32 +83,15 @@ public class EsquemaActor {
         this.spriteTamanyoVisY = (int)(tamanyoYSpriteEnBM * escalaSprite);
         //this.spriteMostrandose contiene el bitmap contenedor ya escalado
 
-        this.spritesArray = new Bitmap[][]{
-                {
-                    Bitmap.createBitmap(spriteMostrandose, 0 ,0, spriteTamanyoVisX, spriteTamanyoVisY)
-                }
-        };
-
-        Log.d("QWERTY","Tamaño del contenedor " + this.spriteContenedor.getWidth() + " x " +this.spriteContenedor.getHeight() +
-                "\nTamaño del sprite contenedor escalado " + this.spriteMostrandose.getWidth() + " x " +this.spriteMostrandose.getHeight() +
-                "\nSprites en x " + spriteContenedor.getWidth()/tamanyoXSpriteEnBM +
-                "\nSprites en y " + spriteContenedor.getHeight()/tamanyoYSpriteEnBM);
-
-//        this.spriteMostrandose = this.spritesArray[spriteIndexI][spriteIndexJ];
-
-        this.spritesArray = CodeSnippets.construyeArray(
+        this.spritesArray = RecursosCodigo.construyeArray(
             spriteMostrandose, //usamos este Bitmap en vez del contenedor porque se ha escalado previamente
             spriteContenedor.getWidth()/tamanyoXSpriteEnBM,  //calcula cuántos sprites totales hay,     CORRECTO
             spriteContenedor.getHeight()/tamanyoYSpriteEnBM,   // aunque se escale es proporcional        CORRECTO
-            tamanyoXSpriteEnBM,
-            tamanyoYSpriteEnBM
+            this.spriteTamanyoVisX,
+            this.spriteTamanyoVisY
         );
 
-        Log.d("QWERTY","Tamaño del contenedor " + this.spriteContenedor.getWidth() + " x " +this.spriteContenedor.getHeight() +
-                "\nTamaño del sprite contenedor escalado " + this.spriteMostrandose.getWidth() + " x " +this.spriteMostrandose.getHeight() +
-                "\nSprites en x " + spriteContenedor.getWidth()/tamanyoXSpriteEnBM +
-                "\nSprites en y " + spriteContenedor.getHeight()/tamanyoYSpriteEnBM);
-
+        this.spriteMostrandose = this.spritesArray[spriteIndexI][spriteIndexJ];
         this.actualizarColision(); //Actualiza la posición del Rectánculo de colisión tras el recorte + escalado
     }
 
@@ -121,10 +104,9 @@ public class EsquemaActor {
     }
 
     public void dibujaDebug(Canvas c) {
-        if (colisiona) {
+        if (this.colisiona) {
             bloqueColisionPaint.setColor(MainActivity.context.getColor(R.color.colisionYes));
         }else {
-
             bloqueColisionPaint.setColor(MainActivity.context.getColor(R.color.colisionNo));
         }
         c.drawRect(
@@ -155,16 +137,15 @@ public class EsquemaActor {
     }
 
     public void actualizarColision(){
-        bloqueColision = new RectF(
-                this.x,
-                this.y,
-               this.x+spriteMostrandose.getWidth(),
-               this.y+spriteMostrandose.getHeight()
-        );
+        bloqueColision.left = this.x;
+        bloqueColision.top = this.y;
+        bloqueColision.right = this.x + this.spriteTamanyoVisX;
+        bloqueColision.bottom = this.y + this.spriteTamanyoVisY;
+
     }
 
     public void choca(EsquemaActor otroActor){
-        if(this.bloqueColision.contains(otroActor.bloqueColision)){
+        if(this.bloqueColision.intersect(otroActor.bloqueColision)){
             this.colisiona = true;
             otroActor.colisiona = true;
         }else{
@@ -179,5 +160,4 @@ public class EsquemaActor {
     public void atacar(boolean atacando){
         this.atacando = atacando;
     }
-
 }

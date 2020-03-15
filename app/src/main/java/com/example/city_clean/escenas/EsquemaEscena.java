@@ -7,7 +7,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 
 import com.example.city_clean.R;
-import com.example.city_clean.codeUtils.CodeSnippets;
+import com.example.city_clean.codeUtils.RecursosCodigo;
 import com.example.city_clean.codeUtils.Constantes;
 import com.example.city_clean.elementos.Boton;
 
@@ -27,7 +27,7 @@ public class EsquemaEscena {
         this.anchoPantalla = anchoPantalla;
         this.altoPantalla = altoPantalla;
 
-        this.bmLogoBtnAtras = CodeSnippets.getBitmapFromAssets(context, LOGO_PATH);
+        this.bmLogoBtnAtras = RecursosCodigo.getBitmapFromAssets(context, LOGO_PATH);
         this.btnAtras = new Boton(
                 anchoPantalla - anchoPantalla/9,
                 0,

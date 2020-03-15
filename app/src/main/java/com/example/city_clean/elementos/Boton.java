@@ -1,7 +1,6 @@
 package com.example.city_clean.elementos;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -11,7 +10,6 @@ import android.view.MotionEvent;
 
 import com.example.city_clean.MainActivity;
 import com.example.city_clean.codeUtils.AssetsPaths;
-import com.example.city_clean.codeUtils.CodeSnippets;
 
 public class Boton {
 

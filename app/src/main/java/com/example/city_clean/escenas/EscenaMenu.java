@@ -10,7 +10,7 @@ import android.view.MotionEvent;
 
 import com.example.city_clean.R;
 import com.example.city_clean.codeUtils.AssetsPaths;
-import com.example.city_clean.codeUtils.CodeSnippets;
+import com.example.city_clean.codeUtils.RecursosCodigo;
 import com.example.city_clean.elementos.Boton;
 
 import java.util.ArrayList;
@@ -25,14 +25,17 @@ public class EscenaMenu extends EsquemaEscena {
     Paint paintTituloStroke;
     Paint paintTituloFill;
 
-    //posiciones relativas de esta pantalla
-    int auxV = altoPantalla/9;
-    int auxH = anchoPantalla/7;
+    //posiciones relativas de esta pantalla, se instanciar
+    int auxV;
+    int auxH;
 
     public Bitmap bmFondo;
 
     public EscenaMenu(Context context, int idEscena, int anchoPantalla, int altoPantalla) {
         super(context, idEscena, anchoPantalla, altoPantalla);
+
+        this.auxV = altoPantalla/9;
+        this.auxH = anchoPantalla/7;
 
         //Titulo
         strTitulo = context.getString(R.string.app_name);
@@ -87,7 +90,7 @@ public class EscenaMenu extends EsquemaEscena {
                         context.getColor(R.color.papiro1),
                         ESCENA_OPCIONES_VALUE));
 
-        this.bmFondo = CodeSnippets.getBitmapFromAssets(context,"background1.png");
+        this.bmFondo = RecursosCodigo.getBitmapFromAssets(context,"background1.png");
         bmFondo = Bitmap.createScaledBitmap(
                 bmFondo,
                 anchoPantalla,altoPantalla,
@@ -102,11 +105,6 @@ public class EscenaMenu extends EsquemaEscena {
         for(Boton b : btnColection){
             b.dibujaBoton(c);
         }
-    }
-
-    @Override
-    public void escenaActFisicas() {
-
     }
 
     @Override

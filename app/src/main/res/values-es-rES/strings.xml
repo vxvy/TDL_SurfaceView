@@ -6,4 +6,6 @@
     <string name="btn_scores">Records</string>
     <string name="btn_help">Ayuda</string>
     <string name="msg_exit">¿De verdad quieres salir?</string>
+    <string name="btn_newgame">Juego Nuevo</string>
+    <string name="btn_continue">Continuar</string>
 </resources>
