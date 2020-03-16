@@ -90,7 +90,7 @@ public class EscenaMenu extends EsquemaEscena {
                         context.getColor(R.color.papiro1),
                         ESCENA_OPCIONES_VALUE));
 
-        this.bmFondo = RecursosCodigo.getBitmapFromAssets(context,"background1.png");
+        this.bmFondo = RecursosCodigo.getBitmapFromAssets(context,AssetsPaths.BACKGROUND01_PATH);
         bmFondo = Bitmap.createScaledBitmap(
                 bmFondo,
                 anchoPantalla,altoPantalla,

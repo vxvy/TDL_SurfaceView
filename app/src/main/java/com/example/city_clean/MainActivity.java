@@ -12,6 +12,9 @@ import java.util.Timer;
 public class MainActivity extends AppCompatActivity {
 
     public static Context context;
+    public static boolean musica;
+    public static boolean efectos;
+    public static boolean vibracion;
     public static Timer timer;
     public static float duracionPartida;
 

@@ -8,4 +8,11 @@
     <string name="msg_exit">Do you really wanna exit?</string>
     <string name="btn_newgame">New Game</string>
     <string name="btn_continue">Continue</string>
+    <string name="opt_music">Music</string>
+    <string name="opt_soundeffects">"Sound effects: "</string>
+    <string name="opt_vibration">"Vibration: "</string>
+    <string name="ptd_lifenumb">"Life number: "</string>
+    <string name="ptd_time">"Time: "</string>
+    <string name="ptd_spatk">Special Atack %:</string>
+    <string name="ptd_sceenid">"Sceen id: "</string>
 </resources>
