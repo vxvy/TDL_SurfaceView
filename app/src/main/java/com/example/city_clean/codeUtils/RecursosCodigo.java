@@ -7,7 +7,9 @@ import android.graphics.BitmapFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Timer;
+import java.util.Comparator;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class RecursosCodigo {
 

@@ -8,16 +8,15 @@ import android.view.MotionEvent;
 import com.example.city_clean.actores.EsquemaActor;
 import com.example.city_clean.codeUtils.RecursosCodigo;
 import com.example.city_clean.codeUtils.Constantes;
-import com.example.city_clean.escenas.EscenaJuego;
+import com.example.city_clean.escenas.EscenaEligeJuego;
 
 import java.util.ArrayList;
-import java.util.Timer;
 
 import static com.example.city_clean.codeUtils.AssetsPaths.ENEMY1_64x160_PATH;
 import static com.example.city_clean.codeUtils.AssetsPaths.LOGO_PATH;
 import static com.example.city_clean.codeUtils.AssetsPaths.SIEGFRIED_WALKING_PATH;
 
-    public class EscenaDeJuegoNivel1 extends EscenaJuego {
+    public class EscenaDeJuegoNivel1 extends EscenaEligeJuego {
 
         public Context context;
         public float floorY = 0; //altura del suelo

@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import static com.example.city_clean.codeUtils.Constantes.ESCENA_CARGAR_JUEGO;
+import static com.example.city_clean.codeUtils.Constantes.ESCENA_JUEGO_NIVEL_1_VALUE;
 import static com.example.city_clean.codeUtils.Constantes.ESCENA_OPCIONES_VALUE;
 import static com.example.city_clean.codeUtils.Constantes.ESCENA_RECORDS_VALUE;
 
@@ -32,7 +34,7 @@ import static com.example.city_clean.codeUtils.Constantes.ESCENA_RECORDS_VALUE;
 
 //Este sub-menú tendrá un fondo de parallax
 
-public class EscenaJuego extends EsquemaEscena {
+public class EscenaEligeJuego extends EsquemaEscena {
 
     public Context context;
     public TimerTask ttDuracionPartida;
@@ -42,7 +44,7 @@ public class EscenaJuego extends EsquemaEscena {
     int auxH;
     int auxV;
 
-    public EscenaJuego(Context context, int idEscena, int anchoPantalla, int altoPantalla) {
+    public EscenaEligeJuego(Context context, int idEscena, int anchoPantalla, int altoPantalla) {
         super(context, idEscena, anchoPantalla, altoPantalla);
 
         this.auxV = altoPantalla/5;
@@ -67,7 +69,7 @@ public class EscenaJuego extends EsquemaEscena {
                 true,
                 context.getString(R.string.btn_continue),
                 context.getColor(R.color.papiro2),
-                ESCENA_RECORDS_VALUE));
+                ESCENA_CARGAR_JUEGO));
 
         this.arlBotones.add(
                 new Boton(
@@ -77,7 +79,7 @@ public class EscenaJuego extends EsquemaEscena {
                 true,
                 context.getString(R.string.btn_newgame),
                 context.getColor(R.color.papiro2),
-                ESCENA_OPCIONES_VALUE));
+                ESCENA_JUEGO_NIVEL_1_VALUE));
 
         this.arlBotones.add(btnAtras);
     }

@@ -76,7 +76,7 @@ public class EscenaOpciones extends EsquemaEscena {
         arlBotonnes.add(btnAtras);
 
         fontPaint = new Paint();
-        fontPaint.setTypeface(Typeface.createFromAsset(MainActivity.context.getAssets(), AssetsPaths.FONT_AWESOME_PATH));
+        fontPaint.setTypeface(Typeface.createFromAsset(context.getAssets(), AssetsPaths.FONT_AWESOME_PATH));
 //        fontPaint.setColor(this.context.getColor(R.color.papiro1));
         fontPaint.setColor(Color.WHITE);
         fontPaint.setTextSize(auxV);
@@ -148,11 +148,11 @@ public class EscenaOpciones extends EsquemaEscena {
                    }
                }
            }
-            Log.d("qwert","MUSICA: " + MainActivity.musica);
-            Log.d("qwert","EFECTOS: " + MainActivity.efectos);
-            Log.d("qwert","VIB: " + MainActivity.vibracion);
+//            Log.d("qwert","MUSICA: " + MainActivity.musica);
+//            Log.d("qwert","EFECTOS: " + MainActivity.efectos);
+//            Log.d("qwert","VIB: " + MainActivity.vibracion);
         }
 
-        return this.idEscena;
+        return super.onTouchEvent(event);
     }
 }

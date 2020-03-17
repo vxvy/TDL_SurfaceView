@@ -7,9 +7,14 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 import com.example.city_clean.codeUtils.Constantes;
-import com.example.city_clean.escenas.EscenaJuego;
+import com.example.city_clean.escenas.EdJ1.EscenaDeJuegoNivel1;
+import com.example.city_clean.escenas.EdJ1.EscenaDeJuegoNivelBoss;
+import com.example.city_clean.escenas.EscenaAyuda;
+import com.example.city_clean.escenas.EscenaCreditos;
+import com.example.city_clean.escenas.EscenaEligeJuego;
 import com.example.city_clean.escenas.EscenaMenu;
 import com.example.city_clean.escenas.EscenaOpciones;
+import com.example.city_clean.escenas.EscenaRecords;
 import com.example.city_clean.escenas.EsquemaEscena;
 
 public class EscenaEnPantalla extends SurfaceView implements SurfaceHolder.Callback {
@@ -79,34 +84,39 @@ public class EscenaEnPantalla extends SurfaceView implements SurfaceHolder.Callb
             if(nuevaEscena!=escena.idEscena){
                 switch (nuevaEscena){
                     case Constantes.ESCENA_JUGAR_VALUE:
-                        escena = new EscenaJuego(context, nuevaEscena, anchoPantalla, altoPantalla);
+                        escena = new EscenaEligeJuego(context, nuevaEscena, anchoPantalla, altoPantalla);
                         break;
                     case Constantes.ESCENA_AYUDA_VALUE:
-                        escena = new EscenaJuego(context, nuevaEscena, anchoPantalla, altoPantalla);
+                        escena = new EscenaAyuda(context, nuevaEscena, anchoPantalla, altoPantalla);
                         break;
                     case Constantes.ESCENA_RECORDS_VALUE:
-                        escena = new EscenaJuego(context, nuevaEscena, anchoPantalla, altoPantalla);
+                        escena = new EscenaRecords(context, nuevaEscena, anchoPantalla, altoPantalla);
                         break;
                     case Constantes.ESCENA_OPCIONES_VALUE:
                         escena = new EscenaOpciones(context, nuevaEscena, anchoPantalla, altoPantalla);
                         break;
                     case Constantes.ESCENA_CREDITOS_VALUE:
-                        escena = new EscenaJuego(context, nuevaEscena, anchoPantalla, altoPantalla);
+                        escena = new EscenaCreditos(context, nuevaEscena, anchoPantalla, altoPantalla);
                         break;
                     case Constantes.ESCENA_JUEGO_NIVEL_1_VALUE:
-                        escena = new EscenaJuego(context, nuevaEscena, anchoPantalla, altoPantalla);
+                        escena = new EscenaDeJuegoNivel1(context, nuevaEscena, anchoPantalla, altoPantalla);
                         break;
                     case Constantes.ESCENA_JUEGO_NIVEL_JEFE_VALUE:
-                        escena = new EscenaJuego(context, nuevaEscena, anchoPantalla, altoPantalla);
+                        escena = new EscenaDeJuegoNivelBoss(context, nuevaEscena, anchoPantalla, altoPantalla);
+                        break;
+                    case Constantes.ESCENA_CARGAR_JUEGO:
+                        //Cargar parámetros de shared preferences aquí
+                        escena = new EscenaEligeJuego(context, nuevaEscena, anchoPantalla, altoPantalla);
                         break;
                     default:
                     case Constantes.ESCENA_MENU_VALUE:
                         escena=new EscenaMenu(context,nuevaEscena,anchoPantalla,altoPantalla);
                         break;
                 }
-            }else{
-                escena.onTouchEvent(event);
             }
+//            else{
+//                escena.onTouchEvent(event);
+//            }
         }
         return true; //true si ha sido gestionado el evento
     }
