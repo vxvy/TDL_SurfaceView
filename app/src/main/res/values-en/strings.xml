@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">The Dragon\'s Lair</string>
-    <string name="btn_play">Play</string>
+    <string name="btn_play">Enter the dungeon</string>
     <string name="btn_options">Options</string>
     <string name="btn_scores">Scores</string>
     <string name="btn_help">Help</string>
@@ -15,4 +15,5 @@
     <string name="ptd_time">"Time: "</string>
     <string name="ptd_spatk">Special Atack %:</string>
     <string name="ptd_sceenid">"Sceen id: "</string>
+    <string name="msg_gameover">Game Over</string>
 </resources>

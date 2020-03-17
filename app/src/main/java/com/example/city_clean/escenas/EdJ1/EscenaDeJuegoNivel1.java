@@ -3,6 +3,7 @@ package com.example.city_clean.escenas.EdJ1;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.util.Log;
 import android.view.MotionEvent;
 
 import com.example.city_clean.actores.EsquemaActor;
@@ -69,6 +70,7 @@ import static com.example.city_clean.codeUtils.AssetsPaths.SIEGFRIED_WALKING_PAT
                 arlActor.add(ea);
             }
 
+            Log.d("QAZ","Cargación");
         }
 
         @Override
@@ -82,7 +84,8 @@ import static com.example.city_clean.codeUtils.AssetsPaths.SIEGFRIED_WALKING_PAT
                 ea.dibujaActor(c);
             }
             siegfried.dibujaActor(c);
-            super.escenaDibuja(c); //dibuja botón para retroceder
+
+            btnAtras.dibujaBoton(c);
         }
 
         @Override

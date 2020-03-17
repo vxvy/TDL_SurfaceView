@@ -17,6 +17,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import static com.example.city_clean.codeUtils.Constantes.ESCENA_CARGAR_JUEGO;
+import static com.example.city_clean.codeUtils.Constantes.ESCENA_GAME_OVER;
 import static com.example.city_clean.codeUtils.Constantes.ESCENA_JUEGO_NIVEL_1_VALUE;
 import static com.example.city_clean.codeUtils.Constantes.ESCENA_OPCIONES_VALUE;
 import static com.example.city_clean.codeUtils.Constantes.ESCENA_RECORDS_VALUE;
@@ -50,19 +51,9 @@ public class EscenaEligeJuego extends EsquemaEscena {
         this.auxV = altoPantalla/5;
         this.auxH = anchoPantalla/3;
 
-//        this.duracionPartida = MainActivity.duracionPartida;
-//                                        // *IMPORTANTE* Aquí es donde se le da valor al timer.
-//                                        // Es posible que al reanudar la ejecución vuelva a 0
-//                                        // Se podría crear una variable estática guardable
-//                                        // si la partida ha sido iniciada antes o no
-//
-//
-//
-//        ttDuracionPartida = new MyTimerTask(duracionPartida);
-
         this.arlBotones = new ArrayList<Boton>();
         this.arlBotones.add(
-                new Boton(
+            new Boton(
                 auxH*0,auxV *1,
                 auxH*2, auxV*2,
                 Color.TRANSPARENT,
@@ -72,7 +63,7 @@ public class EscenaEligeJuego extends EsquemaEscena {
                 ESCENA_CARGAR_JUEGO));
 
         this.arlBotones.add(
-                new Boton(
+            new Boton(
                 auxH*0,auxV*3,
                 auxH*2,auxV*4,
                 Color.TRANSPARENT,
@@ -81,7 +72,17 @@ public class EscenaEligeJuego extends EsquemaEscena {
                 context.getColor(R.color.papiro2),
                 ESCENA_JUEGO_NIVEL_1_VALUE));
 
-        this.arlBotones.add(btnAtras);
+        this.arlBotones.add(
+            new Boton(
+                auxH*2,auxV*4,
+                auxH*3,auxV*5,
+                context.getColor(R.color.orangy),
+                true,
+                context.getString(R.string.msg_gameover),
+                Color.BLACK,
+                ESCENA_GAME_OVER));
+
+      this.arlBotones.add(btnAtras);
     }
 
     @Override

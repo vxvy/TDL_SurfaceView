@@ -12,6 +12,7 @@ import com.example.city_clean.escenas.EdJ1.EscenaDeJuegoNivelBoss;
 import com.example.city_clean.escenas.EscenaAyuda;
 import com.example.city_clean.escenas.EscenaCreditos;
 import com.example.city_clean.escenas.EscenaEligeJuego;
+import com.example.city_clean.escenas.EscenaGameOver;
 import com.example.city_clean.escenas.EscenaMenu;
 import com.example.city_clean.escenas.EscenaOpciones;
 import com.example.city_clean.escenas.EscenaRecords;
@@ -107,6 +108,9 @@ public class EscenaEnPantalla extends SurfaceView implements SurfaceHolder.Callb
                     case Constantes.ESCENA_CARGAR_JUEGO:
                         //Cargar parámetros de shared preferences aquí
                         escena = new EscenaEligeJuego(context, nuevaEscena, anchoPantalla, altoPantalla);
+                        break;
+                    case Constantes.ESCENA_GAME_OVER:
+                        escena = new EscenaGameOver(context, nuevaEscena, anchoPantalla, altoPantalla);
                         break;
                     default:
                     case Constantes.ESCENA_MENU_VALUE:

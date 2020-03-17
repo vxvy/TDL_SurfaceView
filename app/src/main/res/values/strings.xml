@@ -1,7 +1,6 @@
 <resources>
 
-    <string name="app_name">La guarida del Dragon</string>
-    <string name="btn_play">Play</string>
+    <string name="btn_play">Enter the dungeon</string>
     <string name="btn_options">Options</string>
     <string name="btn_scores">Scores</string>
     <string name="btn_help">Help</string>
@@ -24,4 +23,6 @@
     <string name="opt_soundeffects_off_ico" translatable="false">&#xf131;</string>
     <string name="opt_vibration_on_ico" translatable="false">&#xf205;</string>
     <string name="opt_vibration_off_ico" translatable="false">&#xf204;</string>
+    <string name="msg_gameover">Game Over</string>
+    <string name="app_name">The Dragon\'s Lair</string>
 </resources>

@@ -44,6 +44,7 @@ public class Constantes {
     public static final int ESCENA_JUEGO_NIVEL_1_VALUE = 6;
     public static final int ESCENA_JUEGO_NIVEL_JEFE_VALUE = 7;
     public static final int ESCENA_CARGAR_JUEGO = 8;
+    public static final int ESCENA_GAME_OVER = 9;
 
     //ids de las opciones
     public static final int OPCIONES_MUSICA_ID = 111;

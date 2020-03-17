@@ -31,6 +31,8 @@ public class EsquemaActor {
 
     public float escalaSprite;
 
+    public EsquemaActor(){}//Para actores concretos.
+
     public EsquemaActor(float x, float y, int numVidas, Bitmap spriteContenedor, float escalaSprite){
         this.x = x;
         this.y = y;
