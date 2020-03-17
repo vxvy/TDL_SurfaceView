@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
+import android.util.Log;
 import android.view.MotionEvent;
 
 import com.example.city_clean.MainActivity;
@@ -72,11 +73,12 @@ public class EscenaOpciones extends EsquemaEscena {
                         Color.BLACK,
                         Constantes.OPCIONES_VIBRACION_ID)
         );
-
+        arlBotonnes.add(btnAtras);
 
         fontPaint = new Paint();
         fontPaint.setTypeface(Typeface.createFromAsset(MainActivity.context.getAssets(), AssetsPaths.FONT_AWESOME_PATH));
-        fontPaint.setColor(this.context.getColor(R.color.papiro1));
+//        fontPaint.setColor(this.context.getColor(R.color.papiro1));
+        fontPaint.setColor(Color.WHITE);
         fontPaint.setTextSize(auxV);
 
         bmFondo = RecursosCodigo.getBitmapFromAssets(this.context, AssetsPaths.CUT_TITLE_PATH);
@@ -94,31 +96,32 @@ public class EscenaOpciones extends EsquemaEscena {
         );
 
         //music
+        CharSequence aux =  MainActivity.musica ?
+                context.getString(R.string.opt_music_on_ico) :
+                context.getString(R.string.opt_music_off_ico);
         c.drawText(
-                (MainActivity.musica ?
-                                        context.getText(R.string.opt_music_on_ico) :
-                                        context.getText(R.string.opt_music_off_ico))
-                ,
+                aux.toString(),
                 this.auxH*3,
-                auxV * 5,
+                auxV * 6,
                 fontPaint);
         //sound effs
+//        aux = MainActivity.efectos ?
+//                context.getText(R.string.opt_soundeffects_on_ico) :
+//                context.getText(R.string.opt_soundeffects_off_ico);
         c.drawText(
-                (String) (MainActivity.efectos ?
-                        context.getText(R.string.opt_soundeffects_on_ico) :
-                        context.getText(R.string.opt_soundeffects_off_ico))
-                ,
+                aux.toString(),
                 this.auxH*3,
-                auxV * 5,
+                auxV * 8,
                 fontPaint);
         //vib
+        aux = MainActivity.vibracion ?
+                "ON":"OFF";
+//                context.getText(R.string.opt_vibration_on_ico) :
+//                context.getText(R.string.opt_vibration_off_ico);
         c.drawText(
-                (String) (MainActivity.vibracion ?
-                        context.getText(R.string.opt_vibration_on_ico) :
-                        context.getText(R.string.opt_vibration_off_ico))
-                ,
+                aux.toString(),
                 this.auxH*3,
-                auxV * 5,
+                auxV * 10,
                 fontPaint);
 
         for (Boton b:arlBotonnes) {
@@ -129,40 +132,13 @@ public class EscenaOpciones extends EsquemaEscena {
 
     @Override
     public int onTouchEvent(MotionEvent event) {
-        ArrayList<Boolean> auxGameOptions = new ArrayList<Boolean>();
-
-        for(Boton b:arlBotonnes){
-            //music
-            if (b.pulsaBoton(event) &&
-                b.btnValor == Constantes.OPCIONES_MUSICA_ID){
-                auxGameOptions.add(!MainActivity.musica);
-            }else{
-                auxGameOptions.add(MainActivity.musica);
-            }
-
-            //sound effs
-            if (b.pulsaBoton(event) &&
-                b.btnValor == Constantes.OPCIONES_SONIDOS_ID){
-                auxGameOptions.add(!MainActivity.efectos);
-            }else{
-                auxGameOptions.add(MainActivity.efectos);
-            }
-
-            //vib
-            if (b.pulsaBoton(event) &&
-                b.btnValor == Constantes.OPCIONES_VIBRACION_ID){
-                auxGameOptions.add(!MainActivity.vibracion);
-            }else{
-                auxGameOptions.add(MainActivity.vibracion);
-            }
+       if(event.getActionMasked() == MotionEvent.ACTION_UP){
+           MainActivity.musica = !MainActivity.musica;
+            Log.d("qwert","MUSICA: " + MainActivity.musica);
+            Log.d("qwert","EFECTOS: " + MainActivity.efectos);
+            Log.d("qwert","VIB: " + MainActivity.vibracion);
         }
 
-        //guarda los datos
-        GestionDatos gd = new GestionDatos();
-        gd.borrarOpciones();
-        gd.guardarOpciones(auxGameOptions);
-
-        //gestiona el btnAtras
-        return super.onTouchEvent(event);
+        return this.idEscena;
     }
 }

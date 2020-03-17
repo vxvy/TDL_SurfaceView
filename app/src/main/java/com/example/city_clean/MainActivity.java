@@ -15,7 +15,6 @@ public class MainActivity extends AppCompatActivity {
     public static boolean musica;
     public static boolean efectos;
     public static boolean vibracion;
-    public static Timer timer;
     public static float duracionPartida;
 
     @Override
@@ -37,8 +36,14 @@ public class MainActivity extends AppCompatActivity {
         decorView.setSystemUiVisibility(opciones);
 
         this.context = this;
-        this.timer = new Timer();
+
+        //Datos partida
         this.duracionPartida = 0f;
+
+        //Opciones
+        this.musica = true;
+        this.efectos = true;
+        this.vibracion = true;
 
         EscenaEnPantalla contenedorSurfaceView = new EscenaEnPantalla(this);
         contenedorSurfaceView.setKeepScreenOn(true);

@@ -76,7 +76,7 @@ public class GestionDatos {
         SharedPreferences.Editor editor = spOpciones.edit();
         editor.putBoolean(Constantes.OPCIONES_MUSICA,arlOpciones.get(0));
         editor.putBoolean(Constantes.OPCIONES_SONIDOS,arlOpciones.get(1));
-        editor.putBoolean(Constantes.OPCIONES_SONIDOS,arlOpciones.get(2));
+        editor.putBoolean(Constantes.OPCIONES_VIBRACION,arlOpciones.get(2));
         editor.commit();
     }
 
