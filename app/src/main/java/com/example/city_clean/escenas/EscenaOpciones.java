@@ -133,7 +133,21 @@ public class EscenaOpciones extends EsquemaEscena {
     @Override
     public int onTouchEvent(MotionEvent event) {
        if(event.getActionMasked() == MotionEvent.ACTION_UP){
-           MainActivity.musica = !MainActivity.musica;
+           for(Boton b:arlBotonnes){
+               if(b.pulsaBoton(event)){
+                   switch (b.btnValor){
+                       case Constantes.OPCIONES_MUSICA_ID:
+                            MainActivity.musica=!MainActivity.musica;
+                           break;
+                       case Constantes.OPCIONES_SONIDOS_ID:
+                           MainActivity.efectos=!MainActivity.efectos;
+                           break;
+                       case Constantes.OPCIONES_VIBRACION_ID:
+                           MainActivity.vibracion=!MainActivity.vibracion;
+                           break;
+                   }
+               }
+           }
             Log.d("qwert","MUSICA: " + MainActivity.musica);
             Log.d("qwert","EFECTOS: " + MainActivity.efectos);
             Log.d("qwert","VIB: " + MainActivity.vibracion);
